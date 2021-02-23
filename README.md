@@ -1,2 +1,2 @@
 # incidentReport
-Web application for reporting the incident on CAT Server
+Web application for reporting the incident on the CAT Server
