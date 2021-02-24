@@ -2,12 +2,12 @@ package com.cattelecom.incidentReport.Repository;
 
 import java.util.List;
 
-import com.cattelecom.incidentReport.Model.Entry;
+import com.cattelecom.incidentReport.Model.Status;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EntryRepository extends JpaRepository<Entry, Long> {
-    
+public interface StatusRepository extends JpaRepository<Status, Integer> {
+    List<Status> findByOrderByIdAsc();
 }
