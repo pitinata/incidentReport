@@ -8,7 +8,10 @@
           <li><a class="dropdown-item" th:href="@{/dashboard/me}">Private Dashboard</a></li>
           <hr>
           <li><a class="dropdown-item" href="">Setting</a></li>
-          <li><a class="dropdown-item" th:href="@{/}">Logout</a></li>
+          <form th:action="@{/logout}" method="post">
+          <li><input class="dropdown-item" type="submit" value="Logout"></li>
+          </form>
+          
         </ul>
       </div>
 </div>
