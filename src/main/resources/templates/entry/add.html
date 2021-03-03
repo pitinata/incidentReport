@@ -9,6 +9,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div th:replace="_fragments/topmenu.html"></div>
+    <div class="container">
+        <h1>Add new entry</h1>
+        <form th:action="@{/entry/add}" th:object="${entry}" method="POST">
+            <table>
+                <tr>
+                    <td><label for="topic">Topic: </label></td>
+                    <td><input type="text" th:field="*{topic}"></td>
+                    <td class="form-error" th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}"></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Description: </label></td>
+                    <td><input type="text" th:field="*{description}"></td>
+                    <td class="form-error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></td>
+                </tr>
+                <tr>
+                    <td><label for="topic">Status: </label></td>
+                    <td>
+                        <select th:field="*{status}">
+                            <option th:each="status : ${statusList}" th:value="${status.id}" th:text="${status.name}"></option>
+                        </select>
+                    </td>
+                    <td class="form-error" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></td>
+                </tr>
+                <tr>
+                    <td><label for="topic">Due Date: </label></td>
+                    <td><input type="date" th:field="*{duedate}"></td>
+                    <td class="form-error" th:if="${#fields.hasErrors('duedate')}" th:errors="*{duedate}"></td>
+                </tr>
+            </table>
+            
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
     
 </body>
 </html>

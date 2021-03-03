@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EntryRepository extends JpaRepository<Entry, Long> {
+
+	List<Entry> findAllByOrderByDuedateAsc();
     
 }

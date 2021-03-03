@@ -12,7 +12,7 @@
     <div th:replace="_fragments/topmenu.html"></div>
 
     <div class="container mt-2">
-        <h1 align="center">Private Dashboard</h1>
+        <h1 align="center">Private Dashboard <a th:href="@{/entry/add}"><button class="btn btn-success btn-sm">+ New</button></a></h1>
         <div class="row my-1" style="overflow-x: scroll;">
             <div class="card col me-2" th:each="status: ${orderedStatus}">
                 <div class="card-body">
@@ -23,11 +23,14 @@
                     <hr>
                     
                     <div th:each="entries : ${groups.get(status)}">
-                        <button class="card mb-2" th:style="'background-color: #'+${status.colorcode}+';'">
-                            <div class="card-body">
-                                <b><p th:text="${entries.topic}"></p></b>
-                            </div>
-                        </button>
+                        <a th:href="@{/entry/info/}+${entries.id}">
+                            <button class="card mb-2" th:style="'background-color: #'+${status.colorcode}+';'">
+                                <div class="card-body">
+                                    <b><p th:text="${entries.topic}"></p></b>
+                                    <p>Due: <span th:text="${entries.duedate}"></span></p>
+                                </div>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

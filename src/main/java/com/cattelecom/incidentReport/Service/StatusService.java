@@ -15,6 +15,7 @@ public class StatusService implements StatusServiceImpl {
     @Autowired
     StatusRepository statusRepository;
     
+    
     public List<Status> getSortedStatus(){
         return statusRepository.findByOrderByIdAsc();
     }

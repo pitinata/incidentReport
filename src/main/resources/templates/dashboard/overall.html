@@ -23,17 +23,21 @@
                 <div th:each="status, iterStat : ${orderedStatus}" class="tab-pane fade" th:classappend="${iterStat.count}==1 ? 'show active' : ''" th:id="'nav-'+${iterStat.count}" role="tabpanel" th:attr="aria-labelledby='nav-'+${iterStat.count}+'-tab'">
 
                     <h2 th:text="${status.name}"></h2>
-                    <table th:if="${groups.get(status).size() > 0}">
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Due Date</th>
-                        </tr>
-                        <tr th:each="entries : ${groups.get(status)}">
-                            <td th:text="${entries.topic}"></td>
-                            <td th:text="${entries.description}"></td>
-                            <td th:text="${entries.duedate}"></td>
-                        </tr>
+                    <table class="table" th:if="${groups.get(status).size() > 0}">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Due Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="entries : ${groups.get(status)}">
+                                <td th:text="${entries.topic}"></td>
+                                <td th:text="${entries.description}"></td>
+                                <td th:text="${entries.duedate}"></td>
+                            </tr>
+                        </tbody>
                     </table>
                     <div th:if="${groups.get(status).size() == 0}">
                         No entry in this category.

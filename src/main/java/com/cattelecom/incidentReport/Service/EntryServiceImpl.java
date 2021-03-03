@@ -8,4 +8,7 @@ import com.cattelecom.incidentReport.Model.Status;
 
 public interface EntryServiceImpl {
     public Map<Status, List<Entry>> getGroupedEntries();
+    public Entry getEntry(Long id);
+    public Entry save(Entry input);
+    public boolean delete(Long id);
 }

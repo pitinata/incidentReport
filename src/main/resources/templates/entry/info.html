@@ -10,22 +10,23 @@
 </head>
 <body>
     <div th:replace="_fragments/topmenu.html"></div>
-    <div class="container">
+    <div class="container mt-5">
+
         <div th:if="${entry.id} == null">
             <h1>This entry is not existed.</h1>
         </div>
 
         <div th:if="${entry.id} != null">
-            <h1>Delete Entry <span th:text="${entry.id}"></span></h1>
-            <h5>Are you sure?</h5>
-            <div class="d-flex justify-content-center">
-                <a th:href="@{/entry/info/}+${entry.id}"><button class="btn btn-primary me-1">Go back</button></a>
-                <form th:action="@{/entry/delete/}" method="POST">
-                    <button type="submit" id="id" name="id" class="btn btn-danger" th:value="${entry.id}">DELETE</button>
-                </form>
-            </div>
+            <h1> Entry: <span th:text="${entry.id}"></span></h1>
+            <h2 th:text="${entry.topic}"></h2>
+            <h5><span class="badge" th:text="${entry.status.name}" th:style="'background: #'+${entry.status.colorcode}+';'"></span></h5>
+            <p th:text="${entry.description}"></p>
+            <p>Due date: <span th:text="${entry.duedate}"></span></p>
+            <p class="d-flex justify-content-center">
+                <a th:href="@{/entry/edit/}+${entry.id}"><button class="btn btn-warning me-1">Edit</button></a>
+                <a th:href="@{/entry/delete/}+${entry.id}"><button class="btn btn-danger">Delete</button></a>
+            </p>
         </div>
-        
     </div>
     
 </body>
