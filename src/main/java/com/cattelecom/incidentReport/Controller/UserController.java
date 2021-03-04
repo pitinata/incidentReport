@@ -1,5 +1,7 @@
 package com.cattelecom.incidentReport.Controller;
 
+import java.security.Principal;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,5 +16,10 @@ public class UserController {
         ModelAndView mav = new ModelAndView(); 
         mav.setViewName("user/setting");
         return mav;
+    }
+
+    @GetMapping("/principal")
+    public Principal retrievePrincipal(Principal principal){
+        return principal;
     }
 }

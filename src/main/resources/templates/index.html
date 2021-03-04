@@ -27,7 +27,10 @@
         <div class="containter" align="center">
             <h1>Incident Report System</h1>
             <h3>National Telecom</h3>
-            <a th:href="@{/dashboard}"><button class="btn btn-primary">Login</button></a>
+            <a th:href="@{/dashboard}">
+                <span sec:authorize="isAuthenticated()"><button class="btn btn-primary">Go to Dashboard</button></span>
+                <span sec:authorize="isAnonymous()"><button class="btn btn-primary">Login</button></span>
+            </a>
         </div>
     </div>
     
