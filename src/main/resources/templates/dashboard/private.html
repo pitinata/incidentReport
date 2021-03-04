@@ -13,8 +13,8 @@
 
     <div class="container mt-2">
         <h1 align="center">Private Dashboard <a th:href="@{/entry/add}"><button class="btn btn-success btn-sm">+ New</button></a></h1>
-        <div class="row my-1" style="overflow-x: scroll;">
-            <div class="card col me-2" th:each="status: ${orderedStatus}">
+        <div class="row my-1">
+            <div class="card col-lg col-md-6 col-xs-12 m-1" th:each="status: ${orderedStatus}">
                 <div class="card-body">
                     <div style="height: 85px;">
                         <h3 th:text="${status.name}" align="center"></h3>
